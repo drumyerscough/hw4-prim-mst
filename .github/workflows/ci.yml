@@ -17,7 +17,7 @@ jobs:
       - name: Install package
         run: |
           pip install --upgrade pip
-          pip install pytest numpy scikit-learn heapq
+          pip install pytest numpy scikit-learn
           pip install . 
 
       - name: Test with pytest

@@ -20,7 +20,6 @@ dynamic = ["version", "description"]
 dependencies = [
     "pytest",
 	"numpy",
-	"heapq",
 	"typing",
 	"scikit-learn",
 ]
