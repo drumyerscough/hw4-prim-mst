@@ -104,3 +104,5 @@ class Graph:
             if node1 != None and node2 != None:
                 self.mst[node1, node2] = 1
                 self.mst[node2, node1] = 1
+
+        self.mst = self.mst * self.adj_mat
