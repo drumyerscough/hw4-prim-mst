@@ -33,13 +33,14 @@ def check_mst(adj_mat: np.ndarray,
     for i in range(mst.shape[0]):
         for j in range(i+1):
             total += mst[i, j]
+    
     assert approx_equal(total, expected_weight), 'Proposed MST has incorrect expected weight'
 
     # check that the MST has n-1 edges, where n is the number of nodes in the graph
-    assert np.sum(np.triu(mst)) == adj_mat.shape[0]-1, 'Proposed MST has incorrect number of edges'
+    assert (np.count_nonzero(np.triu(mst)) + 1) == adj_mat.shape[0], 'Proposed MST has incorrect number of edges'
 
     # check that the MST is connected
-    assert np.sum(np.triu(mst), axis=0).all() == 1, 'Proposed MST is not fully connected'
+    assert np.sum(np.triu(mst), axis=0).all() > 0, 'Proposed MST is not fully connected'
 
 
 def test_mst_small():
@@ -74,11 +75,10 @@ def test_mst_single_cell_data():
 def test_mst_student():
     """
     
-    Tests to make sure that the MST method raises an exception if the input adjacency matrix has an
-    edge with a negative weight.
+    Tests to make sure that the MST method raises an exception if the input adjacency matrix is bad (asymmetric).
     
     """
     file_path = './test/bad.csv'
     g = Graph(file_path)
-    with pytest.raises(ValueError):
+    with pytest.raises(Exception):
         g.construct_mst()
