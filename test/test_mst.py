@@ -40,7 +40,7 @@ def check_mst(adj_mat: np.ndarray,
     assert (np.count_nonzero(np.triu(mst)) + 1) == adj_mat.shape[0], 'Proposed MST has incorrect number of edges'
 
     # check that the MST is connected
-    assert np.sum(np.triu(mst), axis=0).all() > 0, 'Proposed MST is not fully connected'
+    assert np.count_nonzero(np.sum(np.triu(mst), axis=0)) == adj_mat.shape[0], 'Proposed MST is not fully connected'
 
 
 def test_mst_small():
