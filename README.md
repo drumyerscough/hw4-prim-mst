@@ -1,4 +1,4 @@
-! [BuildStatus] (https://github.com/drumyerscough/hw4-prim-mst/workflows/ci.yml/badge.svg?event=push)
+! [BuildStatus] (https://github.com/drumyerscough/hw4-prim-mst/.github/workflows/ci.yml/badge.svg?event=push)
 
 # HW 4: Prim's algorithm
 
